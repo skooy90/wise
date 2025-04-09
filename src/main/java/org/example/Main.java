@@ -6,13 +6,11 @@ import java.util.Scanner;
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
   public static void main(String[] args) {
-    System.out.println("== mptivation 엡 실행 ==");
     Scanner sc = new Scanner(System.in);
-    System.out.print("명령어) ");
-    String command = sc.nextLine();
 
-
+    new App(sc).run();
 
     sc.close();
+
   }
 }
