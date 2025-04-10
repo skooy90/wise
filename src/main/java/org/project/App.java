@@ -1,4 +1,4 @@
-package org.example;
+package org.project;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -36,7 +36,8 @@ public class App {
       }
       else if (cmd.equals("list")) {
         System.out.println("번호 / 인물 / 명언");
-        System.out.println("----------------------");
+        System.out.println("=".repeat(40));
+        //.repeat는 앞에 문장을 몇번 반복하게 해주는 변수
         
 
         // quoteList.isEmpty()은 배열에서 값이 비어있는지 확인하는 코드

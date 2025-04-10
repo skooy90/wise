@@ -1,4 +1,4 @@
-package org.example;
+package org.project;
 
 public class Mo {
   int id;
