@@ -1,5 +1,8 @@
 package org.project;
 
+import org.system.controller.SystemController;
+import org.wiseSaying.controller.WiseSayingController;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -52,7 +55,8 @@ public class App {
           System.out.println(num+"개의 명언이 등록되었습니다.");
       }
       else if (cmd.equals("exit")) {
-        System.out.println("== motivation 앱 종료 ==");
+        SystemController sc = new SystemController();
+        sc.exit();
         break;
       }
       else {
