@@ -22,28 +22,12 @@ public class App {
       } else if (cmd.equals("list")) {
         wiseSayingController.list();
       } else if (cmd.startsWith("delete")){
-            //parsing 기존에 들어온 개념을 쪼개서 나눈다.
-          String[] cmdBits = cmd.split("\\?");
-//          for(String i : cmdBits){
-//        System.out.println(i);
-        String actionCode = cmdBits[0];
-          Map<String, String> params = new HashMap<>();
+           Rq rq = new Rq(cmd);
+        System.out.println(rq.getActionCode());
+        System.out.println(rq.getParams());
 
-        String[] paramBits = cmdBits[1].split("=", 2);
-
-        String key = paramBits[0];
-        String value =paramBits[1];
-        params.put(key, value);
-        System.out.println(Arrays.toString(cmdBits));
-        System.out.println("actioncode : " + actionCode);
-        System.out.println("key : " + key);
-        System.out.println("value : " + value);
-
-        // parsing end
 
         wiseSayingController.delete();
-
-
 
       } else if (cmd.equals("exit")) {
         systemController.exit();
