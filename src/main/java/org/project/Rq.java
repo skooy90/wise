@@ -13,11 +13,15 @@ public class Rq {
 
   public Rq(String cmd){
     //parsing 기존에 들어온 개념을 쪼개서 나눈다.
-    String[] cmdBits = cmd.split("\\?");
+    String[] cmdBits = cmd.split("\\?", 2);
 //          for(String i : cmdBits){
 //        System.out.println(i);
     actionCode = cmdBits[0];
     params = new HashMap<>();
+
+    if(cmdBits.length == 1){
+      return;
+    }
 
     String[] paramBits = cmdBits[1].split("=", 2);
 
@@ -31,8 +35,8 @@ public class Rq {
   public String getActionCode(){
     return actionCode;
   }
-  public Map<String, String> getParams(){
-    return params;
+  public String getParams(String key){
+    return params.get(key);
   }
 
 
