@@ -4,7 +4,7 @@ import org.system.controller.SystemController;
 import org.wiseSaying.controller.WiseSayingController;
 
 import java.util.*;
-
+// Controller,Service,Repository의 3박자로 웹이 움직인다.
 public class App {
   App() {
   }
