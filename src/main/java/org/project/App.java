@@ -35,6 +35,9 @@ public class App {
         systemController.exit();
         system_status = 0;
         break;
+      case"modify":
+        wiseSayingController.modify(rq);
+        break;
       default:
         System.out.println("존재하지 않는 명령어입니다.");
         break;

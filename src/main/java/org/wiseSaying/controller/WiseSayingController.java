@@ -48,14 +48,16 @@ public class WiseSayingController {
     int id = rq.getParams("id", -1);
     if (id == -1) {
       System.out.println("id를 제대로 입력해주세요");
-    }
-    WiseSaying removeTargetWiseSaying = findById(id);
-    if (removeTargetWiseSaying != null) {
-      wiseSayingList.remove(removeTargetWiseSaying);
-      System.out.printf("%d번 명언이 삭제되었습니다.\n", id);
     } else {
 
-      System.out.printf("%d번 명언은 존재하지 않습니다.\n", id);
+      WiseSaying removeWiseSaying = findById(id);
+      if (removeWiseSaying != null) {
+        wiseSayingList.remove(removeWiseSaying);
+        System.out.printf("%d번 명언이 삭제되었습니다.\n", id);
+      } else {
+
+        System.out.printf("%d번 명언은 존재하지 않습니다.\n", id);
+      }
     }
   }
 
@@ -68,4 +70,30 @@ public class WiseSayingController {
       }
       return null;
     }
+
+  public void modify(Rq rq) {
+    int id = rq.getParams("id", -1);
+    if (id == -1) {
+      System.out.println("id를 제대로 입력해주세요");
+    } else {
+
+      WiseSaying modifyWiseSaying = findById(id);
+      if (modifyWiseSaying != null){
+        System.out.println("명언(기존) : " + modifyWiseSaying.getContent());
+        System.out.println("인물(기존) : " + modifyWiseSaying.getPerson());
+        System.out.println("명언을 수정해주세요!");
+        System.out.print("명언 : ");
+        String newcontent = Container.getScanner().nextLine();
+        System.out.print("인물 : ");
+        String newperson = Container.getScanner().nextLine();
+        System.out.printf("%d번 명언이 재등록되었습니다.\n", modifyWiseSaying.getId());
+
+        modifyWiseSaying.setPerson(newperson);
+        modifyWiseSaying.setContent(newcontent);
+
+      } else {
+        System.out.printf("%d번 명언은 존재하지 않습니다.\n", id);
+      }
+    }
   }
+}
